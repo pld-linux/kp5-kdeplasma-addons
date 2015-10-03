@@ -20,9 +20,13 @@ BuildRequires:	kf5-kconfig-devel
 BuildRequires:	kf5-kconfigwidgets-devel
 BuildRequires:	kf5-kcoreaddons-devel
 BuildRequires:	kf5-kdelibs4support-devel
+BuildRequires:	kf5-kdelibs4support-devel
+BuildRequires:	kf5-kdesignerplugin-devel
 BuildRequires:	kf5-ki18n-devel
 BuildRequires:	kf5-kio-devel
 BuildRequires:	kf5-knewstuff-devel
+BuildRequires:	kf5-kparts-devel
+BuildRequires:	kf5-kross-devel
 BuildRequires:	kf5-kross-devel
 BuildRequires:	kf5-krunner-devel
 BuildRequires:	kf5-kservice-devel
