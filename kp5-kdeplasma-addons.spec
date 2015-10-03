@@ -15,11 +15,11 @@ BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	glib2-devel
 BuildRequires:	ibus-devel
+BuildRequires:	kf5-kinit-devel
 BuildRequires:	kf5-kcmutils-devel
 BuildRequires:	kf5-kconfig-devel
 BuildRequires:	kf5-kconfigwidgets-devel
 BuildRequires:	kf5-kcoreaddons-devel
-BuildRequires:	kf5-kdelibs4support-devel
 BuildRequires:	kf5-kdelibs4support-devel
 BuildRequires:	kf5-kdesignerplugin-devel
 BuildRequires:	kf5-ki18n-devel
