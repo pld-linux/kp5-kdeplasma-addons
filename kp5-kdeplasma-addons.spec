@@ -5,7 +5,7 @@
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
 Version:	5.5.4
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -92,12 +92,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_kimpanel.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_konsoleprofiles.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma_comic_krossprovider.so
+%dir %{_libdir}/qt5/qml/org/kde/plasma/private/activitypager
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/activitypager/libactivitypagerplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/activitypager/qmldir
+%dir %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker/libcolorpickerplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker/qmldir
+%dir %{_libdir}/qt5/qml/org/kde/plasma/private/diskquota
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/diskquota/libdiskquotaplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/diskquota/qmldir
+%dir %{_libdir}/qt5/qml/org/kde/plasma/private/quicklaunch
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/quicklaunch/libquicklaunchplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/quicklaunch/qmldir
 
@@ -174,21 +178,39 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.timer
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %{_datadir}/plasma/desktoptheme/default/icons/quota.svg
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/contents
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/contents/code
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/contents/config
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/contents/ui
 %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/contents/code/utils.js
 %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/contents/config/config.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/contents/config/main.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/contents/ui/configGeneral.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/metadata.desktop
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/code
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/config
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/ui
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/code/logic.js
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/config/config.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/config/main.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/ui/configGeneral.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/metadata.desktop
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/contents
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/contents/ui
 %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/contents/ui/ListDelegateItem.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/metadata.desktop
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/code
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/config
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/ui
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/code/layout.js
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/config/config.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/config/main.xml
@@ -198,6 +220,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/ui/UrlModel.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/metadata.desktop
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/config
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/ui
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/config/config.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/config/main.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/ui/ListDelegate.qml
