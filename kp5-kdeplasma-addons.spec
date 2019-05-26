@@ -1,3 +1,11 @@
+#
+# Conditional build:
+%bcond_without	qtwebengine	# build with Qt5Webengine support
+
+%ifarch x32
+%undefine	with_qtwebengine
+%endif
+
 %define		kdeplasmaver	5.15.3
 %define		qtver		5.9.0
 %define		kpname		kdeplasma-addons
@@ -5,13 +13,14 @@
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
 Version:	5.15.3
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
 # Source0-md5:	a1b032662fd6267b7bf0e8a0ff627db0
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
+%{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	glib2-devel
 BuildRequires:	ibus-devel
@@ -19,12 +28,15 @@ BuildRequires:	kf5-kcmutils-devel
 BuildRequires:	kf5-kconfig-devel
 BuildRequires:	kf5-kconfigwidgets-devel
 BuildRequires:	kf5-kcoreaddons-devel
+BuildRequires:	kf5-kdeclarative-devel
 BuildRequires:	kf5-kdelibs4support-devel
 BuildRequires:	kf5-kdesignerplugin-devel
+BuildRequires:	kf5-kholidays-devel
 BuildRequires:	kf5-ki18n-devel
 BuildRequires:	kf5-kinit-devel
 BuildRequires:	kf5-kio-devel
 BuildRequires:	kf5-knewstuff-devel
+BuildRequires:	kf5-knotifications-devel
 BuildRequires:	kf5-kparts-devel
 BuildRequires:	kf5-kross-devel
 BuildRequires:	kf5-kross-devel
@@ -149,7 +161,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.showdesktop.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.systemloadviewer.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.timer.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.webbrowser.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.activitypager.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.colorpicker.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.diskquota.desktop
@@ -185,7 +196,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.showdesktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma.systemloadviewer
 %{_datadir}/plasma/plasmoids/org.kde.plasma.timer
-%{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %{_datadir}/plasma/desktoptheme/default/icons/quota.svg
 #%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager
 #%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/contents
@@ -307,7 +317,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.plasma.timer.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.userswitcher.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.weather.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.webbrowser.appdata.xml
 %{_datadir}/metainfo/org.kde.potd.appdata.xml
 %dir %{_datadir}/plasma/desktoptheme/default/weather
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
@@ -419,22 +428,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents.so
 %dir %{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents
 %{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents/AstronomicalEventsConfig.qml
-%dir %{_libdir}/qt5/qml/org/kde/plasma/private/dict
-%{_libdir}/qt5/qml/org/kde/plasma/private/dict/libdictplugin.so
-%{_libdir}/qt5/qml/org/kde/plasma/private/dict/qmldir
 %dir %{_libdir}/qt5/qml/org/kde/plasmacalendar
 %dir %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig/libplasmacalendarastronomicaleventsconfig.so
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig/qmldir
-%{_iconsdir}/hicolor/scalable/apps/accessories-dictionary.svgz
 %{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.keyboardindicator.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma_applet_dict.desktop
 %{_datadir}/kservices5/plasma-runner-character.desktop
 %{_datadir}/kservices5/plasma-runner-character_config.desktop
 %{_datadir}/kservices5/plasma-runner-konsoleprofiles.desktop
 %{_datadir}/metainfo/org.kde.plasma.keyboardindicator.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma_applet_dict.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/ui/logic.js
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator/contents
@@ -458,6 +461,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/config/ConfigWeatherStation.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/config/WeatherStationPicker.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/config/WeatherStationPickerDialog.qml
+
+%if %{with qtwebengine}
+%{_datadir}/kservices5/plasma-applet-org.kde.plasma_applet_dict.desktop
+%{_datadir}/metainfo/org.kde.plasma_applet_dict.appdata.xml
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/contents
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/contents/config
@@ -467,6 +474,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/metadata.desktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/metadata.json
+%dir %{_libdir}/qt5/qml/org/kde/plasma/private/dict
+%{_libdir}/qt5/qml/org/kde/plasma/private/dict/libdictplugin.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/dict/qmldir
+%{_iconsdir}/hicolor/scalable/apps/accessories-dictionary.svgz
+%{_datadir}/metainfo/org.kde.plasma.webbrowser.appdata.xml
+%{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
+%{_datadir}/kservices5/plasma-applet-org.kde.plasma.webbrowser.desktop
+%endif
 
 %files devel
 %defattr(644,root,root,755)
