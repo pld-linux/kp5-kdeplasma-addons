@@ -6,18 +6,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.21.5
+%define		kdeplasmaver	5.22.0
 %define		qtver		5.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.21.5
+Version:	5.22.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	cd8fb24ee2e4aca1524201a984d1b0e0
+# Source0-md5:	33784ca5510b7d911228cb5849c07f88
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
@@ -96,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kpname}.lang
 %defattr(644,root,root,755)
 %{_datadir}/knsrcfiles/comic.knsrc
-%attr(755,root,root) %ghost %{_libdir}/libplasmacomicprovidercore.so.1
+%ghost %{_libdir}/libplasmacomicprovidercore.so.1
 %attr(755,root,root) %{_libdir}/libplasmacomicprovidercore.so.*.*.*
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_krunner_dictionary.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_krunner_spellcheck.so
@@ -390,7 +390,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_libdir}/qt5/plugins/kf5/krunner
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_charrunner.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_converter.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_datetime.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_dictionary.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_katesessions.so
@@ -408,6 +407,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol/metadata.desktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol/metadata.json
+
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/unitconverter.so
 
 %if %{with qtwebengine}
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma_applet_dict.desktop
