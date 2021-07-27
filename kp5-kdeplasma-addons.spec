@@ -6,18 +6,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.22.3
+%define		kdeplasmaver	5.22.4
 %define		qtver		5.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.22.3
+Version:	5.22.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	7730ff87021fce5579b60a083f4f3f98
+# Source0-md5:	9c393f6da042841ed8cf41f9ad126b5c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
@@ -134,25 +134,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_small_icons.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_text.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnails.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.calculator.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.comic.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.fifteenpuzzle.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.fuzzyclock.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.konsoleprofiles.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.notes.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.timer.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.activitypager.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.colorpicker.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.diskquota.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.kickerdash.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.quicklaunch.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.userswitcher.desktop
 %{_datadir}/kservices5/plasma-dataengine-comic.desktop
 %{_datadir}/kservices5/plasma-dataengine-konsoleprofiles.desktop
 %{_datadir}/kservices5/plasma-runner-dictionary_config.desktop
 %{_datadir}/kservices5/plasma-runner-spellchecker_config.desktop
-%{_datadir}/kservices5/plasma-wallpaper-org.kde.haenau.desktop
-%{_datadir}/kservices5/plasma-wallpaper-org.kde.hunyango.desktop
 %{_datadir}/kservicetypes5/plasma_comicprovider.desktop
 %dir %{_datadir}/kwin
 %{_datadir}/kwin/desktoptabbox
@@ -232,14 +217,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt5/qml/org/kde/plasma/private/weather
 %{_libdir}/qt5/qml/org/kde/plasma/private/weather/libweatherplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/weather/qmldir
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.binaryclock.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.grouping.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.mediaframe.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.private.grouping.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.quickshare.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.weather.desktop
 %{_datadir}/kservices5/plasma-dataengine-potd.desktop
-%{_datadir}/kservices5/plasma-wallpaper-org.kde.potd.desktop
 %{_datadir}/metainfo/org.kde.haenau.appdata.xml
 %{_datadir}/metainfo/org.kde.hunyango.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.activitypager.appdata.xml
@@ -361,7 +339,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig/libplasmacalendarastronomicaleventsconfig.so
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig/qmldir
 %{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.keyboardindicator.desktop
 %{_datadir}/kservices5/plasma-runner-character_config.desktop
 %{_datadir}/metainfo/org.kde.plasma.keyboardindicator.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/ui/logic.js
@@ -399,7 +376,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/nightcolorcontrol/libnightcolorcontrolplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/nightcolorcontrol/qmldir
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnail_grid.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.nightcolorcontrol.desktop
 %{_datadir}/metainfo/org.kde.plasma.nightcolorcontrol.appdata.xml
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol/contents
@@ -411,7 +387,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/unitconverter.so
 
 %if %{with qtwebengine}
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma_applet_dict.desktop
 %{_datadir}/metainfo/org.kde.plasma_applet_dict.appdata.xml
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/contents
@@ -428,9 +403,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/scalable/apps/accessories-dictionary.svgz
 %{_datadir}/metainfo/org.kde.plasma.webbrowser.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.webbrowser.desktop
 %endif
-
 
 
 %files devel
