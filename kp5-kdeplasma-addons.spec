@@ -6,18 +6,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.22.4
+%define		kdeplasmaver	5.22.5
 %define		qtver		5.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.22.4
+Version:	5.22.5
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	9c393f6da042841ed8cf41f9ad126b5c
+# Source0-md5:	f8e1e7f78e400d3e8c9066738c16e0c7
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
@@ -387,24 +387,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/unitconverter.so
 
 %if %{with qtwebengine}
-%{_datadir}/metainfo/org.kde.plasma_applet_dict.appdata.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/contents/config
-%{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/contents/config/config.qml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/contents/ui/ConfigDictionaries.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict/metadata.json
-%dir %{_libdir}/qt5/qml/org/kde/plasma/private/dict
-%{_libdir}/qt5/qml/org/kde/plasma/private/dict/libdictplugin.so
-%{_libdir}/qt5/qml/org/kde/plasma/private/dict/qmldir
-%{_iconsdir}/hicolor/scalable/apps/accessories-dictionary.svgz
-%{_datadir}/metainfo/org.kde.plasma.webbrowser.appdata.xml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %endif
-
 
 %files devel
 %defattr(644,root,root,755)
