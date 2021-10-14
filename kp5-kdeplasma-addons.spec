@@ -6,18 +6,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.22.5
+%define		kdeplasmaver	5.23.0
 %define		qtver		5.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.22.5
+Version:	5.23.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	f8e1e7f78e400d3e8c9066738c16e0c7
+# Source0-md5:	250a73ba4f930a31fb3a73c7270f0828
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
@@ -78,7 +78,7 @@ cd build
 %cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	../
+		../
 %ninja_build
 
 %install
@@ -100,11 +100,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libplasmacomicprovidercore.so.*.*.*
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_krunner_dictionary.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_krunner_spellcheck.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_packagestructure_comic.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/plasma_applet_comic.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_comic.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_konsoleprofiles.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/plasma_comic_krossprovider.so
 %dir %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker/libcolorpickerplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker/qmldir
@@ -134,11 +132,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_small_icons.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_text.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnails.desktop
-%{_datadir}/kservices5/plasma-dataengine-comic.desktop
-%{_datadir}/kservices5/plasma-dataengine-konsoleprofiles.desktop
 %{_datadir}/kservices5/plasma-runner-dictionary_config.desktop
 %{_datadir}/kservices5/plasma-runner-spellchecker_config.desktop
-%{_datadir}/kservicetypes5/plasma_comicprovider.desktop
 %dir %{_datadir}/kwin
 %{_datadir}/kwin/desktoptabbox
 %{_datadir}/kwin/tabbox
@@ -151,43 +146,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.konsoleprofiles
 %{_datadir}/plasma/plasmoids/org.kde.plasma.notes
 %{_datadir}/plasma/plasmoids/org.kde.plasma.timer
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/config
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/config/config.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/config/main.xml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/ui/configGeneral.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/metadata.desktop
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/contents/ui/ListDelegateItem.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/metadata.desktop
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/config
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/config/config.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/config/main.xml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/ui/ConfigGeneral.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/ui/IconItem.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/ui/Popup.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/ui/UrlModel.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/metadata.desktop
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/config
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/config/config.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/config/main.xml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/ui/ListDelegate.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/ui/configGeneral.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/metadata.desktop
+%{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota
+%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
+%{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
 %{_datadir}/plasma/services/org.kde.plasma.dataengine.konsoleprofiles.operations
 %{_datadir}/plasma/wallpapers/org.kde.haenau
 %{_datadir}/plasma/wallpapers/org.kde.hunyango
@@ -217,7 +178,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt5/qml/org/kde/plasma/private/weather
 %{_libdir}/qt5/qml/org/kde/plasma/private/weather/libweatherplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/weather/qmldir
-%{_datadir}/kservices5/plasma-dataengine-potd.desktop
 %{_datadir}/metainfo/org.kde.haenau.appdata.xml
 %{_datadir}/metainfo/org.kde.hunyango.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.activitypager.appdata.xml
@@ -241,95 +201,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.potd.appdata.xml
 %dir %{_datadir}/plasma/desktoptheme/default/weather
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager
-%{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager/metadata.json
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/contents/config
-%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/contents/config/config.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/contents/config/main.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/contents/ui/BinaryClock.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/contents/ui/Dot.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/contents/ui/DotColumn.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/contents/ui/configGeneral.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock/metadata.json
-
-%{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/metadata.json
-
-%{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota/metadata.json
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.grouping/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.grouping/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.grouping/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.grouping/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.plasma.grouping/metadata.json
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe/contents/config
-%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe/contents/config/config.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe/contents/config/main.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe/contents/ui/ConfigGeneral.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe/contents/ui/ConfigPaths.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe/metadata.json
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents/applet
-%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents/applet/CompactApplet.qml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents/config
-%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents/config/config.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents/config/main.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents/ui
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents/ui/items
-%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents/ui/items/AbstractItem.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents/ui/items/PlasmoidItem.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping/metadata.json
-
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/metadata.json
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/contents/config
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/contents/config/config.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/contents/config/main.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/contents/ui/PasteMenuItem.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/contents/ui/ShareDialog.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/contents/ui/ShowUrlDialog.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/contents/ui/settingsGeneral.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare/metadata.json
-
-%{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher/metadata.json
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.weather
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/config
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/config/config.qml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/DetailsView.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/NoticesView.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/TopPanel.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/metadata.json
-%dir %{_datadir}/plasma/wallpapers/org.kde.potd
-%dir %{_datadir}/plasma/wallpapers/org.kde.potd/contents
-%dir %{_datadir}/plasma/wallpapers/org.kde.potd/contents/config
-%{_datadir}/plasma/wallpapers/org.kde.potd/contents/config/main.xml
-%dir %{_datadir}/plasma/wallpapers/org.kde.potd/contents/ui
-%{_datadir}/plasma/wallpapers/org.kde.potd/contents/ui/config.qml
-%{_datadir}/plasma/wallpapers/org.kde.potd/contents/ui/main.qml
-%{_datadir}/plasma/wallpapers/org.kde.potd/metadata.desktop
-%{_datadir}/plasma/wallpapers/org.kde.potd/metadata.json
-
+%{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager
+%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock
+%{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
+%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe
+%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping
+%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare
+%{_datadir}/plasma/plasmoids/org.kde.plasma.weather
+%{_datadir}/plasma/wallpapers/org.kde.potd
 %{_libdir}/qt5/plugins/kcm_krunner_charrunner.so
 %{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents.so
 %dir %{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents
@@ -341,30 +220,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/kservices5/plasma-runner-character_config.desktop
 %{_datadir}/metainfo/org.kde.plasma.keyboardindicator.appdata.xml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker/contents/ui/logic.js
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator/contents/config
-%{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator/contents/config/config.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator/contents/config/main.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator/contents/ui/configAppearance.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator/metadata.json
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch/contents/ui/layout.js
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/CompactRepresentation.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/ForecastView.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/FullRepresentation.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/IconAndTextItem.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/SwitchPanel.qml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/config
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/config/ConfigAppearance.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/config/ConfigUnits.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/config/ConfigWeatherStation.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/config/WeatherStationPicker.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.weather/contents/ui/config/WeatherStationPickerDialog.qml
-
+%{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
+%{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
 %dir %{_libdir}/qt5/plugins/kf5/krunner
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_charrunner.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_datetime.so
@@ -377,16 +234,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/plasma/private/nightcolorcontrol/qmldir
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnail_grid.desktop
 %{_datadir}/metainfo/org.kde.plasma.nightcolorcontrol.appdata.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol/metadata.desktop
-%{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol/metadata.json
-
+%{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/unitconverter.so
+%{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_comic.so
+%{_libdir}/qt5/plugins/plasma/dataengine/plasma_comic_krossprovider.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/dict/libdictplugin.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/dict/qmldir
+%{_iconsdir}/hicolor/scalable/apps/accessories-dictionary.svg*
+%{_datadir}/metainfo/org.kde.plasma.webbrowser.appdata.xml
+%{_datadir}/metainfo/org.kde.plasma_applet_dict.appdata.xml
+%{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
+%{_datadir}/qlogging-categories5/plasma_comic.categories
 
 %if %{with qtwebengine}
+%{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %endif
 
 %files devel
