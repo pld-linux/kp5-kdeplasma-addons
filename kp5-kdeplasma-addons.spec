@@ -238,16 +238,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/unitconverter.so
 %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_comic.so
 %{_libdir}/qt5/plugins/plasma/dataengine/plasma_comic_krossprovider.so
+%{_datadir}/qlogging-categories5/plasma_comic.categories
+
+%if %{with qtwebengine}
+%{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %{_libdir}/qt5/qml/org/kde/plasma/private/dict/libdictplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/dict/qmldir
 %{_iconsdir}/hicolor/scalable/apps/accessories-dictionary.svg*
 %{_datadir}/metainfo/org.kde.plasma.webbrowser.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma_applet_dict.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
-%{_datadir}/qlogging-categories5/plasma_comic.categories
-
-%if %{with qtwebengine}
-%{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %endif
 
 %files devel
