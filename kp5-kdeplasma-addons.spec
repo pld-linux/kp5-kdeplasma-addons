@@ -13,7 +13,7 @@
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
 Version:	5.23.2
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -242,6 +242,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %if %{with qtwebengine}
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
+%dir %{_libdir}/qt5/qml/org/kde/plasma/private/dict
 %{_libdir}/qt5/qml/org/kde/plasma/private/dict/libdictplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/dict/qmldir
 %{_iconsdir}/hicolor/scalable/apps/accessories-dictionary.svg*
