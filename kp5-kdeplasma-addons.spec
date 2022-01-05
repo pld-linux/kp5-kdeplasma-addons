@@ -6,18 +6,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.23.4
+%define		kdeplasmaver	5.23.5
 %define		qtver		5.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.23.4
+Version:	5.23.5
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	7050e2d550375e09c5713c7975439748
+# Source0-md5:	7127ff26e00515a0a2c86b0e1ff59cf4
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
@@ -239,6 +239,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_comic.so
 %{_libdir}/qt5/plugins/plasma/dataengine/plasma_comic_krossprovider.so
 %{_datadir}/qlogging-categories5/plasma_comic.categories
+
+%{_datadir}/kservices5/plasma-wallpaper-org.kde.haenau.desktop
+%{_datadir}/kservices5/plasma-wallpaper-org.kde.hunyango.desktop
+%{_datadir}/kservices5/plasma-wallpaper-org.kde.potd.desktop
 
 %if %{with qtwebengine}
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
