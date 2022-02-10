@@ -6,18 +6,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.23.5
+%define		kdeplasmaver	5.24.0
 %define		qtver		5.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.23.5
+Version:	5.24.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	7127ff26e00515a0a2c86b0e1ff59cf4
+# Source0-md5:	0f52913bec0b9ae5fe7c39b7eb7c0822
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
@@ -98,8 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/knsrcfiles/comic.knsrc
 %ghost %{_libdir}/libplasmacomicprovidercore.so.1
 %attr(755,root,root) %{_libdir}/libplasmacomicprovidercore.so.*.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcm_krunner_dictionary.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcm_krunner_spellcheck.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/plasma_applet_comic.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_comic.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_konsoleprofiles.so
@@ -132,8 +130,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_small_icons.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_text.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnails.desktop
-%{_datadir}/kservices5/plasma-runner-dictionary_config.desktop
-%{_datadir}/kservices5/plasma-runner-spellchecker_config.desktop
 %dir %{_datadir}/kwin
 %{_datadir}/kwin/desktoptabbox
 %{_datadir}/kwin/tabbox
@@ -209,7 +205,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare
 %{_datadir}/plasma/plasmoids/org.kde.plasma.weather
 %{_datadir}/plasma/wallpapers/org.kde.potd
-%{_libdir}/qt5/plugins/kcm_krunner_charrunner.so
 %{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents.so
 %dir %{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents
 %{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents/AstronomicalEventsConfig.qml
@@ -218,7 +213,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig/libplasmacalendarastronomicaleventsconfig.so
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig/qmldir
 %{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
-%{_datadir}/kservices5/plasma-runner-character_config.desktop
 %{_datadir}/metainfo/org.kde.plasma.keyboardindicator.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
 %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
@@ -243,6 +237,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/plasma-wallpaper-org.kde.haenau.desktop
 %{_datadir}/kservices5/plasma-wallpaper-org.kde.hunyango.desktop
 %{_datadir}/kservices5/plasma-wallpaper-org.kde.potd.desktop
+
+%{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_charrunner.so
+%{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_dictionary.so
+%{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_spellcheck.so
+%{_libdir}/qt5/plugins/potd/plasma_potd_simonstalenhagprovider.so
+%{_datadir}/kservices5/kwin/kwin4_window_switcher_coverswitch.desktop
+%{_datadir}/kservices5/kwin/kwin4_window_switcher_flipswitch.desktop
 
 %if %{with qtwebengine}
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
