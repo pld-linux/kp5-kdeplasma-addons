@@ -13,7 +13,7 @@
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
 Version:	5.24.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -24,6 +24,7 @@ BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	glib2-devel
 BuildRequires:	ibus-devel
+BuildRequires:	kf5-karchive-devel
 BuildRequires:	kf5-kcmutils-devel
 BuildRequires:	kf5-kconfig-devel
 BuildRequires:	kf5-kconfigwidgets-devel
@@ -238,6 +239,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/plasma-wallpaper-org.kde.hunyango.desktop
 %{_datadir}/kservices5/plasma-wallpaper-org.kde.potd.desktop
 
+%dir %{_libdir}/qt5/plugins/kf5/krunner/kcms
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_charrunner.so
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_dictionary.so
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_spellcheck.so
