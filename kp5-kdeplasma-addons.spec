@@ -1,23 +1,24 @@
 #
 # Conditional build:
 %bcond_without	qtwebengine	# build with Qt5Webengine support
+%bcond_with	tests		# build with tests
 
 %ifarch x32
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.24.3
+%define		kdeplasmaver	5.24.4
 %define		qtver		5.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.24.3
+Version:	5.24.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	326b19eedde2a71e267cf622c23afe2e
+# Source0-md5:	10ebb11cb9214c1e5aafa7c5d08d183c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
@@ -77,10 +78,15 @@ Pliki nagłówkowe dla programistów używających %{kpname}.
 install -d build
 cd build
 %cmake -G Ninja \
+	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 		../
 %ninja_build
+
+%if %{with tests}
+ctest
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
