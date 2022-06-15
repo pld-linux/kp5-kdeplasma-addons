@@ -7,18 +7,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.24.5
+%define		kdeplasmaver	5.25.0
 %define		qtver		5.9.0
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.24.5
+Version:	5.25.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	1e64236fd3f83c2244b7f43786e5973e
+Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
+# Source0-md5:	6e807b5a5d6b17e2c4e36f09491a538d
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
@@ -103,10 +103,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kpname}.lang
 %defattr(644,root,root,755)
 %{_datadir}/knsrcfiles/comic.knsrc
-%ghost %{_libdir}/libplasmacomicprovidercore.so.1
-%attr(755,root,root) %{_libdir}/libplasmacomicprovidercore.so.*.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/plasma_applet_comic.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_comic.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_konsoleprofiles.so
 %dir %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker/libcolorpickerplugin.so
@@ -161,8 +157,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libplasmapotdprovidercore.so.1.*.*
 %{_libdir}/qt5/plugins/plasma/applets/org.kde.plasma.grouping.so
 %{_libdir}/qt5/plugins/plasma/applets/org.kde.plasma.private.grouping.so
-%{_libdir}/qt5/plugins/plasma/applets/plasma_applet_weather.so
-%{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_potd.so
 %dir %{_libdir}/qt5/plugins/potd
 %{_libdir}/qt5/plugins/potd/plasma_potd_apodprovider.so
 %{_libdir}/qt5/plugins/potd/plasma_potd_bingprovider.so
@@ -219,7 +213,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig/libplasmacalendarastronomicaleventsconfig.so
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/astronomicaleventsconfig/qmldir
-%{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/metainfo/org.kde.plasma.keyboardindicator.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
 %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
@@ -237,20 +230,26 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.plasma.nightcolorcontrol.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/unitconverter.so
-%{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_comic.so
-%{_libdir}/qt5/plugins/plasma/dataengine/plasma_comic_krossprovider.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_comic.so
 %{_datadir}/qlogging-categories5/plasma_comic.categories
 
 %{_datadir}/kservices5/plasma-wallpaper-org.kde.haenau.desktop
 %{_datadir}/kservices5/plasma-wallpaper-org.kde.hunyango.desktop
 %{_datadir}/kservices5/plasma-wallpaper-org.kde.potd.desktop
 
-%{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_charrunner.so
-%{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_dictionary.so
-%{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_spellcheck.so
-%{_libdir}/qt5/plugins/potd/plasma_potd_simonstalenhagprovider.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_charrunner.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_dictionary.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_spellcheck.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/potd/plasma_potd_simonstalenhagprovider.so
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_coverswitch.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_flipswitch.desktop
+
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/org.kde.plasma.comic.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/org.kde.plasma.weather.so
+%attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/wallpapers/potd/libplasma_wallpaper_potdplugin.so
+%attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/wallpapers/potd/qmldir
+%{_datadir}/kdevfiletemplates/templates/plasmapotdprovider.tar.bz2
+%{_datadir}/kservicetypes5/plasma-comic.desktop
 
 %if %{with qtwebengine}
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
