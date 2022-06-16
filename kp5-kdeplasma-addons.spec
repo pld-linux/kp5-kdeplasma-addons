@@ -14,7 +14,7 @@
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
 Version:	5.25.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -246,6 +246,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/org.kde.plasma.comic.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/org.kde.plasma.weather.so
+%dir %{_libdir}/qt5/qml/org/kde/plasma/wallpapers/potd
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/wallpapers/potd/libplasma_wallpaper_potdplugin.so
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/wallpapers/potd/qmldir
 %{_datadir}/kdevfiletemplates/templates/plasmapotdprovider.tar.bz2
