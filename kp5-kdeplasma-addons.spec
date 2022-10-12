@@ -7,18 +7,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.25.5
+%define		kdeplasmaver	5.26.0
 %define		qtver		5.15.2
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.25.5
-Release:	2
+Version:	5.26.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	90b488cc349ab60ec818dbd84fb44c94
+# Source0-md5:	ad82f9d03ec26af90808f71681fd71c0
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
@@ -103,7 +103,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kpname}.lang
 %defattr(644,root,root,755)
 %{_datadir}/knsrcfiles/comic.knsrc
-%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_konsoleprofiles.so
 %dir %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker/libcolorpickerplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker/qmldir
@@ -124,15 +123,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/timer/libtimerplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/timer/qmldir
 %{_iconsdir}/hicolor/scalable/apps/fifteenpuzzle.svgz
-%dir %{_datadir}/kservices5/kwin
-%{_datadir}/kservices5/kwin/kwin4_desktop_switcher_previews.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_big_icons.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_compact.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_informative.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_present_windows.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_small_icons.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_text.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnails.desktop
 %dir %{_datadir}/kwin
 %{_datadir}/kwin/desktoptabbox
 %{_datadir}/kwin/tabbox
@@ -148,7 +138,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
-%{_datadir}/plasma/services/org.kde.plasma.dataengine.konsoleprofiles.operations
 %{_datadir}/plasma/wallpapers/org.kde.haenau
 %{_datadir}/plasma/wallpapers/org.kde.hunyango
 
@@ -177,7 +166,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/plasma/private/weather/qmldir
 %{_datadir}/metainfo/org.kde.haenau.appdata.xml
 %{_datadir}/metainfo/org.kde.hunyango.appdata.xml
-%{_datadir}/metainfo/org.kde.plasma.activitypager.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.binaryclock.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.calculator.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.colorpicker.appdata.xml
@@ -198,7 +186,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.potd.appdata.xml
 %dir %{_datadir}/plasma/desktoptheme/default/weather
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
-%{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager
 %{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock
 %{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
 %{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe
@@ -226,31 +213,36 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/qt5/qml/org/kde/plasma/private/nightcolorcontrol
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/nightcolorcontrol/libnightcolorcontrolplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/nightcolorcontrol/qmldir
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnail_grid.desktop
 %{_datadir}/metainfo/org.kde.plasma.nightcolorcontrol.appdata.xml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/unitconverter.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_comic.so
 %{_datadir}/qlogging-categories5/plasma_comic.categories
 
-%{_datadir}/kservices5/plasma-wallpaper-org.kde.haenau.desktop
-%{_datadir}/kservices5/plasma-wallpaper-org.kde.hunyango.desktop
-%{_datadir}/kservices5/plasma-wallpaper-org.kde.potd.desktop
-
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_charrunner.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_dictionary.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_spellcheck.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/potd/plasma_potd_simonstalenhagprovider.so
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_coverswitch.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_flipswitch.desktop
 
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/org.kde.plasma.comic.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/org.kde.plasma.weather.so
 %dir %{_libdir}/qt5/qml/org/kde/plasma/wallpapers/potd
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/wallpapers/potd/libplasma_wallpaper_potdplugin.so
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/wallpapers/potd/qmldir
-%{_datadir}/kdevfiletemplates/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/kservicetypes5/plasma-comic.desktop
+
+%{_libdir}/qt5/plugins/plasmacalendarplugins/alternatecalendar.so
+%{_libdir}/qt5/plugins/plasmacalendarplugins/alternatecalendar/AlternateCalendarConfig.qml
+%{_libdir}/qt5/qml/org/kde/plasma/private/profiles/libprofiles_qml_plugin.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/profiles/qmldir
+%{_libdir}/qt5/qml/org/kde/plasmacalendar/alternatecalendarconfig/libplasmacalendaralternatecalendarconfig.so
+%{_libdir}/qt5/qml/org/kde/plasmacalendar/alternatecalendarconfig/qmldir
+%{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
+%{_datadir}/metainfo/org.kde.plasma.addons.katesessions.appdata.xml
+%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/KateSessionsItemDelegate.qml
+%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/Menu.qml
+%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/main.qml
+%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/metadata.json
 
 %if %{with qtwebengine}
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
