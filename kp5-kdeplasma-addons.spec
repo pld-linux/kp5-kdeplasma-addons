@@ -245,7 +245,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/katesessionsitemdelegate.qml
+%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/KateSessionsItemDelegate.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/Menu.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/metadata.json
