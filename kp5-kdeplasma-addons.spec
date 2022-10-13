@@ -14,7 +14,7 @@
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
 Version:	5.26.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -232,14 +232,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservicetypes5/plasma-comic.desktop
 
 %{_libdir}/qt5/plugins/plasmacalendarplugins/alternatecalendar.so
+%dir %{_libdir}/qt5/plugins/plasmacalendarplugins/alternatecalendar
 %{_libdir}/qt5/plugins/plasmacalendarplugins/alternatecalendar/AlternateCalendarConfig.qml
 %{_libdir}/qt5/qml/org/kde/plasma/private/profiles/libprofiles_qml_plugin.so
+%dir %{_libdir}/qt5/qml/org/kde/plasma/private/profiles
 %{_libdir}/qt5/qml/org/kde/plasma/private/profiles/qmldir
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/alternatecalendarconfig/libplasmacalendaralternatecalendarconfig.so
+%dir %{_libdir}/qt5/qml/org/kde/plasmacalendar/alternatecalendarconfig
 %{_libdir}/qt5/qml/org/kde/plasmacalendar/alternatecalendarconfig/qmldir
 %{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/metainfo/org.kde.plasma.addons.katesessions.appdata.xml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/KateSessionsItemDelegate.qml
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui
+%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/katesessionsitemdelegate.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/Menu.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions/metadata.json
