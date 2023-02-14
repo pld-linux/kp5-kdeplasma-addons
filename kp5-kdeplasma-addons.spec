@@ -7,18 +7,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.26.5
+%define		kdeplasmaver	5.27.0
 %define		qtver		5.15.2
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.26.5
+Version:	5.27.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	fc695034a7236fb6eab8a324216bc710
+# Source0-md5:	8dcb23e4e9310405fe30438624577216
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
@@ -205,11 +205,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
 %dir %{_libdir}/qt5/plugins/kf5/krunner
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_charrunner.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_datetime.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_dictionary.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_katesessions.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_konsoleprofiles.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/krunner/krunner_spellcheck.so
+%{_libdir}/qt5/plugins/kf5/krunner/org.kde.datetime.so
+
 %dir %{_libdir}/qt5/qml/org/kde/plasma/private/nightcolorcontrol
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/private/nightcolorcontrol/libnightcolorcontrolplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/nightcolorcontrol/qmldir
