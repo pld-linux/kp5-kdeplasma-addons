@@ -14,7 +14,7 @@
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
 Version:	5.27.4
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
