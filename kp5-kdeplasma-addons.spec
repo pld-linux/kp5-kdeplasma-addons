@@ -7,18 +7,18 @@
 %undefine	with_qtwebengine
 %endif
 
-%define		kdeplasmaver	5.27.9
+%define		kdeplasmaver	5.27.10
 %define		qtver		5.15.2
 %define		kpname		kdeplasma-addons
 
 Summary:	All kind of addons to improve your Plasma experience
 Name:		kp5-%{kpname}
-Version:	5.27.9
+Version:	5.27.10
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	70c298db54203e935c48e91590180d47
+# Source0-md5:	00afc45528267a5e2ec11b47b8a7779b
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 %{?with_qtwebengine:BuildRequires:	Qt5WebEngine-devel}
